@@ -30,7 +30,7 @@ class ViewController: UIViewController {
             "key3":"value3"
         ] //Add Perameter of Dictionary
         
-        WebServices().CallGlobalAPI(urlString: strURL, JsonDict: JSONDic as NSDictionary, HttpMethod: "POST", ProgressView: true) { ( _ dictResponse:[String: Any] ) in
+        WebServices().CallGlobalAPI(urlString: strURL, JsonDict: JSONDic as NSDictionary, HttpMethod: "POST") { ( _ dictResponse:[String: Any] ) in
 //                print(dictResponse)
             DispatchQueue.main.async {
                 self.lblResponse.text = dictResponse.description
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
     @IBAction func btnGet(_ sender: Any) {
         let strURL = "" //Add URL
         let JSONDic:[String: Any] = [:] //Add NIL Perameter of Dictionary
-        WebServices().CallGlobalAPI(urlString: strURL, JsonDict: JSONDic as NSDictionary, HttpMethod: "GET", ProgressView: true) { ( _ dictResponse:[String: Any] ) in
+        WebServices().CallGlobalAPI(urlString: strURL, JsonDict: JSONDic as NSDictionary, HttpMethod: "GET") { ( _ dictResponse:[String: Any] ) in
 //                print(dictResponse)
             DispatchQueue.main.async {
                 self.lblResponse.text = dictResponse.description
