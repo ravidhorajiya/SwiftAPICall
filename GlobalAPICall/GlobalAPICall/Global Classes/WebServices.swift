@@ -9,15 +9,19 @@
 import UIKit
 import Foundation
 import SystemConfiguration
+import SVProgressHUD
 
 var dictResponse: ( _ dictResponse:[String: Any] ) -> Void = {_ in }
 
 class WebServices: NSObject
 {
-    func CallGlobalAPI( urlString:String, JsonDict:NSDictionary, HttpMethod:String, responseDict:@escaping ( _ dictResponse:[String: Any] ) -> Void )  {
-
+    func CallGlobalAPI( urlString:String, JsonDict:NSDictionary, HttpMethod:String, ProgressView:Bool, responseDict:@escaping ( _ dictResponse:[String: Any] ) -> Void )  {
+        
         if (HttpMethod == "POST")
         {
+            if ProgressView == true {
+                self.ProgressViewShow()
+            }
             if Reachability.isConnectedToNetwork() == true {
                 print("Internet connection OK")
                 // prepare json data
@@ -36,38 +40,7 @@ class WebServices: NSObject
                 
                 _ = URLSession.shared.dataTask(with: request) { data, response, error in guard let data = data, error == nil else {
                     print(error?.localizedDescription ?? "No data")
-                    return
-                    }
-                    let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
-                    if let responseJSON = responseJSON as? [String: Any]
-                    {
-                        print("====================== URL =====================")
-                        print(urlString)
-                        print("================== PERAMETERS ==================")
-                        print(JsonDict)
-                        print("=================== RESPONSE ===================")
-                        print(responseJSON)
-                        responseDict(responseJSON)
-                    }
-                }.resume()
-            } else {
-                let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                UIApplication.shared.windows[0].rootViewController?.present(alert, animated: true, completion: nil)
-                print("Internet connection FAILED")
-            }
-        }
-        else
-        {
-            if Reachability.isConnectedToNetwork() == true {
-                print("Internet connection OK")
-                // create get request
-                let url = URL(string: urlString)!
-                var request = URLRequest(url: url)
-                request.httpMethod = HttpMethod
-                
-                _ = URLSession.shared.dataTask(with: request) { data, response, error in guard let data = data, error == nil else {
-                    print(error?.localizedDescription ?? "No data")
+                    self.ProgressViewHide()
                     return
                     }
                     let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
@@ -84,13 +57,65 @@ class WebServices: NSObject
                                 responseDict(responseJSON)
                         }
                     }
+                    self.ProgressViewHide()
                     }.resume()
             } else {
+                self.ProgressViewHide()
                 let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 UIApplication.shared.windows[0].rootViewController?.present(alert, animated: true, completion: nil)
                 print("Internet connection FAILED")
             }
         }
+        else
+        {
+            if ProgressView == true {
+                self.ProgressViewShow()
+            }
+            if Reachability.isConnectedToNetwork() == true {
+                print("Internet connection OK")
+                // create get request
+                let url = URL(string: urlString)!
+                var request = URLRequest(url: url)
+                request.httpMethod = HttpMethod
+                
+                _ = URLSession.shared.dataTask(with: request) { data, response, error in guard let data = data, error == nil else {
+                    print(error?.localizedDescription ?? "No data")
+                    self.ProgressViewHide()
+                    return
+                    }
+                    let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+                    if let responseJSON = responseJSON as? [String: Any]
+                    {
+                        print("====================== URL =====================")
+                        print(urlString)
+                        print("================== PERAMETERS ==================")
+                        print(JsonDict)
+                        print("=================== RESPONSE ===================")
+                        print(responseJSON)
+                        DispatchQueue.main.async
+                            {
+                                responseDict(responseJSON)
+                        }
+                    }
+                    self.ProgressViewHide()
+                    }.resume()
+            } else {
+                self.ProgressViewHide()
+                let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                UIApplication.shared.windows[0].rootViewController?.present(alert, animated: true, completion: nil)
+                print("Internet connection FAILED")
+            }
+        }
+    }
+    
+    // MARK: ProgressView
+    func ProgressViewShow() {
+        SVProgressHUD.show(withStatus: "Please wait..")
+    }
+    
+    func ProgressViewHide() {
+        SVProgressHUD.dismiss()
     }
 }
