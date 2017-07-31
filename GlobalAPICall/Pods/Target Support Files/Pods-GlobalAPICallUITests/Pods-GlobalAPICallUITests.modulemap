@@ -1,0 +1,6 @@
+framework module Pods_GlobalAPICallUITests {
+  umbrella header "Pods-GlobalAPICallUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
