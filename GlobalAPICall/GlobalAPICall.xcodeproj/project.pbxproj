@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		01FED8ACB82CC7C2A5892A0B /* Pods_GlobalAPICall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9612CDEC028FC5E5DDA3CD40 /* Pods_GlobalAPICall.framework */; };
 		08E16F7158503FF3D70CB1D6 /* Pods_GlobalAPICallTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7130CE5FF8FBD2A8513D12 /* Pods_GlobalAPICallTests.framework */; };
-		41146EB01F0F451700E0ED35 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41146EAF1F0F451700E0ED35 /* Reachability.swift */; };
 		413936221F0E08FF005F7138 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413936211F0E08FF005F7138 /* AppDelegate.swift */; };
 		413936241F0E08FF005F7138 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413936231F0E08FF005F7138 /* ViewController.swift */; };
 		413936271F0E08FF005F7138 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413936251F0E08FF005F7138 /* Main.storyboard */; };
@@ -18,6 +17,7 @@
 		413936371F0E08FF005F7138 /* GlobalAPICallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413936361F0E08FF005F7138 /* GlobalAPICallTests.swift */; };
 		413936421F0E08FF005F7138 /* GlobalAPICallUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413936411F0E08FF005F7138 /* GlobalAPICallUITests.swift */; };
 		413936531F0E0A28005F7138 /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413936521F0E0A28005F7138 /* WebServices.swift */; };
+		9F1937881F713AEE0045B889 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1937871F713AEE0045B889 /* Reachability.swift */; };
 		DA3FA9E0DC1742680B4EC99B /* Pods_GlobalAPICallUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DDEFFC60AE9FF60509AEC1 /* Pods_GlobalAPICallUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +42,6 @@
 		099F41AE7660C0CFA457AFD7 /* Pods-GlobalAPICallUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GlobalAPICallUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GlobalAPICallUITests/Pods-GlobalAPICallUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1076041E3BC29B424684B7B7 /* Pods-GlobalAPICallTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GlobalAPICallTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GlobalAPICallTests/Pods-GlobalAPICallTests.release.xcconfig"; sourceTree = "<group>"; };
 		376B93D9A525859B58CAC193 /* Pods-GlobalAPICall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GlobalAPICall.release.xcconfig"; path = "Pods/Target Support Files/Pods-GlobalAPICall/Pods-GlobalAPICall.release.xcconfig"; sourceTree = "<group>"; };
-		41146EAF1F0F451700E0ED35 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		4139361E1F0E08FF005F7138 /* GlobalAPICall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlobalAPICall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		413936211F0E08FF005F7138 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		413936231F0E08FF005F7138 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +61,7 @@
 		57AEB467CFF6468CAF18155F /* Pods-GlobalAPICallTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GlobalAPICallTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GlobalAPICallTests/Pods-GlobalAPICallTests.debug.xcconfig"; sourceTree = "<group>"; };
 		68ECC1B1C81BABF2EC738137 /* Pods-GlobalAPICall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GlobalAPICall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GlobalAPICall/Pods-GlobalAPICall.debug.xcconfig"; sourceTree = "<group>"; };
 		9612CDEC028FC5E5DDA3CD40 /* Pods_GlobalAPICall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GlobalAPICall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F1937871F713AEE0045B889 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		E1B496BD1022F4C464720E69 /* Pods-GlobalAPICallUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GlobalAPICallUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GlobalAPICallUITests/Pods-GlobalAPICallUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E7DDEFFC60AE9FF60509AEC1 /* Pods_GlobalAPICallUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GlobalAPICallUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB7130CE5FF8FBD2A8513D12 /* Pods_GlobalAPICallTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GlobalAPICallTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,9 +152,9 @@
 		4139364F1F0E0935005F7138 /* Global Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9F1937871F713AEE0045B889 /* Reachability.swift */,
 				413936501F0E095F005F7138 /* GlobalHeader.h */,
 				413936511F0E09FA005F7138 /* PrefixHeader.pch */,
-				41146EAF1F0F451700E0ED35 /* Reachability.swift */,
 				413936521F0E0A28005F7138 /* WebServices.swift */,
 			);
 			path = "Global Classes";
@@ -469,7 +469,7 @@
 			files = (
 				413936241F0E08FF005F7138 /* ViewController.swift in Sources */,
 				413936221F0E08FF005F7138 /* AppDelegate.swift in Sources */,
-				41146EB01F0F451700E0ED35 /* Reachability.swift in Sources */,
+				9F1937881F713AEE0045B889 /* Reachability.swift in Sources */,
 				413936531F0E0A28005F7138 /* WebServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,7 +22,7 @@ class WebServices: NSObject
             if ProgressView == true {
                 self.ProgressViewShow()
             }
-            if Reachability.isConnectedToNetwork() == true {
+            if checkInternet(reachability: Reachability()!) == true {
                 print("Internet connection OK")
                 // prepare json data
                 let jsonData = try? JSONSerialization.data(withJSONObject: JsonDict)
@@ -72,7 +72,7 @@ class WebServices: NSObject
             if ProgressView == true {
                 self.ProgressViewShow()
             }
-            if Reachability.isConnectedToNetwork() == true {
+            if checkInternet(reachability: Reachability()!) == true {
                 print("Internet connection OK")
                 // create get request
                 let url = URL(string: urlString)!
@@ -108,6 +108,23 @@ class WebServices: NSObject
                 print("Internet connection FAILED")
             }
         }
+    }
+    
+    func checkInternet(reachability: Reachability) -> Bool {
+        print("\(reachability.description) - \(reachability.connection)")
+        var check:Bool = false
+        
+        if reachability.connection == .wifi {
+            check = true
+        }
+        else if reachability.connection == .cellular {
+            check = true
+        }
+        else
+        {
+            check = false
+        }
+        return check
     }
     
     // MARK: ProgressView
